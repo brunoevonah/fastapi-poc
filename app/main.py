@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from loguru import logger
+from starlette_prometheus import metrics, PrometheusMiddleware
 
 from app.core.config import get_settings
 from app.core.logging import configure_logger
@@ -22,6 +23,8 @@ def create_app():
 
     # create app and include routes
     app = FastAPI()
+    app.add_middleware(PrometheusMiddleware)
+    app.add_route("/metrics", metrics)
     app.include_router(api_router)
 
     return app

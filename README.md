@@ -12,6 +12,13 @@ poetry install
 poetry run pre-commit install
 ```
 
+### Adding more dependencies
+```sh
+poetry add starlette_prometheus
+
+# To remove
+poetry remove starlette_prometheus
+```
 ## Common commands
 Use these commands inside the root folder (fastapi-poc by default) to execute tasks for the project
 ### Lint check

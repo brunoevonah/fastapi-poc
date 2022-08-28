@@ -13,6 +13,7 @@ poetry run pre-commit install
 ```
 
 ## Common commands
+Use these commands inside the root folder (fastapi-poc by default) to execute tasks for the project
 ### Lint check
 ```sh
 poetry run flake8
@@ -28,7 +29,10 @@ poetry run black .
 ```sh
 poetry run uvicorn app.main:create_app --factory --reload
 ```
-
+### Run tests
+```sh
+poetry run pytest tests
+```
 ### Build locally
 ```sh
 docker build -t fastapipoc:latest .

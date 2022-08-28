@@ -31,9 +31,8 @@ jobs:
           poetry run flake8
           poetry run black --check .
 
-      # TODO add tests
-      # - name: Test
-      #   run: poetry run pytest tests
+      - name: Test
+        run: poetry run pytest tests
 
       - name: Docker build
         run: docker build -t fastapipoc:latest .

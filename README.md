@@ -50,3 +50,9 @@ docker run -p 8000:8000 fastapipoc
 ```
 ### Swagger/OpenAPI access
 http://localhost:8000/docs
+
+## Helm
+To check the current resources of the chart (inside fastapi-poc folder)
+```sh
+helm template testTemplate charts/
+```

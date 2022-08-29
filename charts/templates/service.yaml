@@ -1,0 +1,14 @@
+{{- if .Values.service.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "fastapipoc.name" . }}
+  labels:
+    {{- include "fastapipoc.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    {{ .Values.service.ports | toYaml | indent 4 | trim }}
+  selector:
+    {{- include "fastapipoc.selectorLabels" . | nindent 6 }}
+{{- end }}

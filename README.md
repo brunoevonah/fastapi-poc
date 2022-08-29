@@ -49,10 +49,16 @@ docker build -t fastapipoc:latest .
 docker run -p 8000:8000 fastapipoc
 ```
 ### Swagger/OpenAPI access
-http://localhost:8000/docs
+- http://localhost:8000/docs
+#### Other helper endpoins
+- http://localhost:8000/health
+- http://localhost:8000/metrics
 
 ## Helm
 To check the current resources of the chart (inside fastapi-poc folder)
 ```sh
 helm template testTemplate charts/
 ```
+
+https://github.com/brunoevonah/fastapi-poc
+https://hub.docker.com/repository/docker/brunoevonah/fastapipoc

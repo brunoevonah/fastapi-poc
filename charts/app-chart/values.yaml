@@ -28,10 +28,12 @@ readinessProbe:
   initialDelaySeconds: 30
   periodSeconds: 15
 
-service:
-  enabled: true
-  type: "ClusterIP"
-  ports: [8000]
+  service:
+    enabled: true
+    type: "ClusterIP"
+    ports:
+    - port: 8000
+      targetPort: 8000
 
 imagePullSecrets: []
 nameOverride: ""

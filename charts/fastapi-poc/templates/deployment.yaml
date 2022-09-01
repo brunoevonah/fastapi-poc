@@ -13,7 +13,6 @@ spec:
     metadata:
       labels:
         {{- include "fastapipoc.selectorLabels" . | nindent 8 }}
-        change-chart: "001"
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:

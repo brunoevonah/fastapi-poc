@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: brunoevonah/fastapipoc
   pullPolicy: IfNotPresent
-  #tag: "v0.0.3"
+  # tag: "v0.0.3"
 
 containerPort: 8000
 

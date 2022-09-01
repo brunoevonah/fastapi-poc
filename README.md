@@ -57,7 +57,7 @@ docker run -p 8000:8000 fastapipoc
 ## Helm
 To check the current resources of the chart (inside fastapi-poc folder)
 ```sh
-helm template testTemplate charts/
+helm template testTemplate charts/fastapi-poc/
 ```
 
 https://github.com/brunoevonah/fastapi-poc

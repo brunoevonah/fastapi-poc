@@ -38,9 +38,6 @@ jobs:
         uses: helm/kind-action@v1.2.0
         if: steps.list-changed.outputs.changed == 'true'
 
-      # # https://github.com/helm/chart-testing/blob/main/doc/ct_install.md
-      # - name: Run chart-testing (install)
-      #   run: ct install --chart-dirs charts
-
-      - name: Lint, install and test
-        run: ct lint-and-install
+      # https://github.com/helm/chart-testing/blob/main/doc/ct_install.md
+      - name: Run chart-testing (install)
+        run: ct install --debug --target-branch ${{ github.event.repository.default_branch }}

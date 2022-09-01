@@ -2,9 +2,6 @@ name: Lint and Test Charts
 
 on: pull_request
 
-env:
-  chart-dirs: "fastapi-poc"
-
 jobs:
   lint-test:
     runs-on: ubuntu-latest
@@ -29,13 +26,13 @@ jobs:
       - name: Run chart-testing (list-changed)
         id: list-changed
         run: |
-          changed=$(ct list-changed --chart-dirs ${{ env.chart-dirs }} --target-branch ${{ github.event.repository.default_branch }})
+          changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
           if [[ -n "$changed" ]]; then
             echo "::set-output name=changed::true"
           fi
 
       - name: Run chart-testing (lint)
-        run: ct lint --chart-dirs ${{ env.chart-dirs }} --target-branch ${{ github.event.repository.default_branch }}
+        run: ct lint --target-branch ${{ github.event.repository.default_branch }}
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.2.0
@@ -43,4 +40,4 @@ jobs:
 
       # https://github.com/helm/chart-testing/blob/main/doc/ct_install.md
       - name: Run chart-testing (install)
-        run: ct install --chart-dirs ${{ env.chart-dirs }}
+        run: ct install
